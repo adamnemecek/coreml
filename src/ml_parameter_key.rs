@@ -1,4 +1,4 @@
-// #import <CoreML/CoreML.h>
+use crate::prelude::*;
 
 // NS_ASSUME_NONNULL_BEGIN
 
@@ -8,6 +8,15 @@
 // ML_EXPORT
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLParameterKey : MLKey
+
+pub enum MLParameterKeyFFI {}
+
+foreign_obj_type! {
+    type CType = MLParameterKeyFFI;
+    pub struct MLParameterKey;
+    pub struct MLParameterKeyRef;
+    type ParentType = MLKeyRef;
+}
 
 // // Double parameter used to control the learning rate of an optimizer. Adjustable in progress
 // @property (class, readonly, nonatomic) MLParameterKey *learningRate;

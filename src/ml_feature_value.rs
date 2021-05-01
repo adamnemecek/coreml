@@ -1,3 +1,4 @@
+use crate::prelude::*;
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLFeatureType.h>
 // #import <CoreML/MLMultiArray.h>
@@ -16,6 +17,14 @@
 // API_AVAILABLE(macos(10.13), ios(11.0), watchos(4.0), tvos(11.0))
 // ML_EXPORT
 // @interface MLFeatureValue : NSObject<NSCopying, NSSecureCoding>
+
+pub enum MLFeatureValueFFI {}
+
+foreign_obj_type! {
+    type CType = MLFeatureValueFFI;
+    pub struct MLFeatureValue;
+    pub struct MLFeatureValueRef;
+}
 
 // /// Type of the value for which the corresponding property below is held
 // @property (readonly, nonatomic) MLFeatureType type;

@@ -1,3 +1,4 @@
+use crate::prelude::*;
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLFeatureType.h>
 // #import <CoreML/MLExport.h>
@@ -17,5 +18,13 @@
 // @property (readonly, nonatomic) MLFeatureType keyType;
 
 // @end
+
+pub enum MLDictionaryConstraintFFI {}
+
+foreign_obj_type! {
+    type CType = MLDictionaryConstraintFFI;
+    pub struct MLDictionaryConstraint;
+    pub struct MLDictionaryConstraintRef;
+}
 
 // NS_ASSUME_NONNULL_END

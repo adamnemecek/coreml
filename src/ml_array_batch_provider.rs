@@ -1,3 +1,5 @@
+
+use crate::prelude::*;
 // #import <CoreML/MLBatchProvider.h>
 // #import <CoreML/MLExport.h>
 
@@ -9,6 +11,14 @@
 // API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0))
 // ML_EXPORT
 // @interface MLArrayBatchProvider : NSObject<MLBatchProvider>
+
+pub enum MLArrayBatchProviderFFI {}
+
+foreign_obj_type! {
+    type CType = MLArrayBatchProviderFFI;
+    pub struct MLArrayBatchProvider;
+    pub struct MLArrayBatchProviderRef;
+}
 
 // @property (readonly, nonatomic) NSArray<id<MLFeatureProvider>> *array;
 
