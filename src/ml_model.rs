@@ -26,6 +26,14 @@
 // ML_EXPORT
 // @interface MLModel : NSObject
 
+pub enum MLModelFFI { }
+
+foreign_obj_type! {
+    type CType = MLModelFFI;
+    pub struct MLModel;
+    pub struct MLModelRef;
+}
+
 // /// A model holds a description of its required inputs and expected outputs.
 // @property (readonly, nonatomic) MLModelDescription *modelDescription;
 

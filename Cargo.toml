@@ -9,3 +9,7 @@ edition = "2018"
 block = { path = "../rust-block" }
 foreign-types = "0.3"
 cocoa-foundation = "0.1"
+
+[dependencies.objc]
+version = "0.2.4"
+features = ["objc_exception"]
