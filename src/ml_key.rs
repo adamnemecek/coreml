@@ -25,3 +25,19 @@
 // @end
 
 // NS_ASSUME_NONNULL_END
+
+pub enum MLKeyFFI {}
+
+foreign_obj_type! {
+    type CType = MLKeyFFI;
+    pub struct MLKey;
+    pub struct MLKeyRef;
+}
+
+impl MLKeyRef {
+    pub fn name(&self) -> &str {
+        unsafe {
+            crate::nsstring_as_str(msg_send![self, name])
+        }
+    }
+}
