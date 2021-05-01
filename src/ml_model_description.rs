@@ -1,10 +1,3 @@
-// //
-// //  MLModelDescription.h
-// //  CoreML
-// //
-// //  Copyright © 2017 Apple Inc. All rights reserved.
-// //
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLFeatureDescription.h>
 // #import <CoreML/MLModelMetadataKeys.h>

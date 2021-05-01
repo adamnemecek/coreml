@@ -1,10 +1,3 @@
-// //
-// //  MLMultiArrayConstraint.h
-// //  CoreML
-// //
-// //  Copyright © 2017 Apple Inc. All rights reserved.
-// //
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLMultiArray.h>
 // #import <CoreML/MLMultiArrayShapeConstraint.h>

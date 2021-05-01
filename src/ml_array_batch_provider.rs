@@ -1,10 +1,3 @@
-// //
-// //  MLArrayBatchProvider.h
-// //  CoreML
-// //
-// //  Copyright © 2018 Apple Inc. All rights reserved.
-// //
-
 // #import <CoreML/MLBatchProvider.h>
 // #import <CoreML/MLExport.h>
 

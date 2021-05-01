@@ -1,9 +1,3 @@
-// //
-// //  MLImageSizeConstraint.h
-// //  CoreML
-// //
-// //  Copyright © 2018 Apple Inc. All rights reserved.
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLImageSize.h>
 // #import <CoreML/MLImageSizeConstraintType.h>

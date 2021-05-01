@@ -1,9 +1,3 @@
-// //
-// //  MLCustomModel.h
-// //  CoreML
-// //
-// //  Copyright © 2018 Apple Inc. All rights reserved.
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLModelDescription.h>
 // #import <CoreML/MLFeatureProvider.h>

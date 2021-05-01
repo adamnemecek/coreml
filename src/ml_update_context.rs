@@ -1,10 +1,3 @@
-// //
-// //  MLUpdateContext.h
-// //  CoreML
-// //
-// //  Copyright © 2019 Apple Inc. All rights reserved.
-// //
-
 // #import <CoreML/CoreML.h>
 
 // NS_ASSUME_NONNULL_BEGIN

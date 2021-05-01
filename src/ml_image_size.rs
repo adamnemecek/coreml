@@ -1,9 +1,3 @@
-// //
-// //  MLImageSize.h
-// //  CoreML
-// //
-// //  Copyright © 2018 Apple Inc. All rights reserved.
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLExport.h>
 

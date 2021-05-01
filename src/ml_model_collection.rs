@@ -1,10 +1,3 @@
-// //
-// //  MLModelCollection.h
-// //  CoreML
-// //
-// //  Copyright © 2019 Apple Inc. All rights reserved.
-// //
-
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLModelCollectionEntry.h>
 // #import <CoreML/MLExport.h>

@@ -1,9 +1,3 @@
-// //
-// //  MLImageSizeConstraintType.h
-// //  CoreML
-// //
-// //  Copyright © 2018 Apple Inc. All rights reserved.
-
 // #import <Foundation/Foundation.h>
 
 // typedef NS_ENUM(NSInteger, MLImageSizeConstraintType) {

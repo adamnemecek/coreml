@@ -1,10 +1,3 @@
-// //
-// //  MLFeatureValue+MLImageConversion.h
-// //  CoreML_framework
-// //
-// //  Copyright © 2019 Apple Inc. All rights reserved.
-// //
-
 // #import <CoreML/MLFeatureValue.h>
 // #import <CoreML/MLImageConstraint.h>
 // #import <CoreGraphics/CGImage.h>
