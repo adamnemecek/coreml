@@ -31,7 +31,7 @@
 //                            trainingData:(id<MLBatchProvider>)trainingData
 //                       completionHandler:(void (^)(MLUpdateContext * _Nonnull))completionHandler
 //                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
-                                  
+
 // // Update via task control and custom progress callbacks
 // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
 //                                     trainingData:(id<MLBatchProvider>)trainingData
@@ -45,7 +45,6 @@
 //                        progressHandlers:(MLUpdateProgressHandlers *)progressHandlers
 //                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
 
-
 // // Request a resume with new parameters. Should be used within a progressHandler
 // - (void)resumeWithParameters:(NSDictionary<MLParameterKey *, id> *)updateParameters;
 
@@ -57,6 +56,4 @@
 
 // @end
 
-
 // NS_ASSUME_NONNULL_END
-

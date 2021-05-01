@@ -28,4 +28,3 @@
 
 // /// Any additional pertinent information specified by the model creator
 // FOUNDATION_EXPORT MLModelMetadataKey const MLModelCreatorDefinedKey API_AVAILABLE(macos(10.13), ios(11.0), watchos(4.0), tvos(11.0));
-

@@ -21,7 +21,6 @@
 //     MLMultiArrayDataTypeInt32   = 0x20000 | 32,
 // } API_AVAILABLE(macos(10.13), ios(11.0), watchos(4.0), tvos(11.0));
 
-
 // /*!
 //  * Multidimensional Array
 //  */
@@ -56,7 +55,6 @@
 // - (nullable instancetype)initWithShape:(NSArray<NSNumber *> *)shape
 //                               dataType:(MLMultiArrayDataType)dataType
 //                                  error:(NSError **)error;
-
 
 // /// Create by wrapping existing data
 // - (nullable instancetype)initWithDataPointer:(void *)dataPointer

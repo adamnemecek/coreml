@@ -26,7 +26,7 @@
 // ML_EXPORT
 // @interface MLModel : NSObject
 
-pub enum MLModelFFI { }
+pub enum MLModelFFI {}
 
 foreign_obj_type! {
     type CType = MLModelFFI;

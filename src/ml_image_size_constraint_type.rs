@@ -6,7 +6,6 @@
 
 // #import <Foundation/Foundation.h>
 
-
 // typedef NS_ENUM(NSInteger, MLImageSizeConstraintType) {
 
 //     MLImageSizeConstraintTypeUnspecified = 0,  // Any image size is allowed
@@ -16,4 +15,3 @@
 //     MLImageSizeConstraintTypeRange = 3,      // Allow full width and height ranges
 
 // } API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
-

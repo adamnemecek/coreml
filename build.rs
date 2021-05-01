@@ -1,8 +1,4 @@
-use std::process::{
-    exit,
-    Command,
-    Stdio,
-};
+use std::process::{exit, Command, Stdio};
 
 // fn apple_darwin_sign_file(file_path: &std::path::Path) {
 //     let status = Command::new("codesign")

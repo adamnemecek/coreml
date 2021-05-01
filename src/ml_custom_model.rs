@@ -30,14 +30,12 @@
 //                               parameterDictionary:(NSDictionary<NSString *, id> *)parameters
 //                                             error:(NSError **)error;
 
-
 // /*
 //  * Required implemenationat of a single sample input prediction.
 //  */
 // - (nullable id<MLFeatureProvider>)predictionFromFeatures:(id<MLFeatureProvider>)input
 //                                                  options:(MLPredictionOptions *)options
 //                                                    error:(NSError **)error;
-
 
 // @optional
 
@@ -49,5 +47,3 @@
 // @end
 
 // NS_ASSUME_NONNULL_END
-
-

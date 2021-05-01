@@ -132,6 +132,7 @@ macro_rules! foreign_obj_type {
     };
 }
 
+pub mod prelude;
 
 mod ml_array_batch_provider;
 pub use ml_array_batch_provider::*;
@@ -258,4 +259,3 @@ pub use ml_update_task::*;
 
 mod ml_writable;
 pub use ml_writable::*;
-

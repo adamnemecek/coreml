@@ -16,18 +16,15 @@
 // /// Options keys passed into the MLFeatureValue construction for image types
 // typedef NSString * MLFeatureValueImageOption NS_SWIFT_NAME(MLFeatureValue.ImageOption) NS_TYPED_EXTENSIBLE_ENUM;
 
-
 // /// Key for CGRect describing a crop region of interest of image source in normalized coordinates
 // ML_EXPORT MLFeatureValueImageOption const MLFeatureValueImageOptionCropRect API_AVAILABLE(macos(10.15), ios(13.0), tvos(13.0));
 
 // /// Key for VNImageCropAndScaleOption describing how to crop and scale the image (or region of interest) to the desired size
 // ML_EXPORT MLFeatureValueImageOption const MLFeatureValueImageOptionCropAndScale API_AVAILABLE(macos(10.15), ios(13.0),tvos(13.0));
 
-
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(13.0))
 // ML_EXPORT
 // @interface MLFeatureValue (MLImageConversion)
-
 
 // /// Construct image feature value from an image on disk. Orientation is read from Exif if avaiable
 // + (nullable instancetype)featureValueWithImageAtURL:(NSURL *)url
@@ -42,7 +39,6 @@
 //                                          constraint:(MLImageConstraint *)constraint
 //                                             options:(nullable NSDictionary<MLFeatureValueImageOption, id> *)options
 //                                               error:(NSError * _Nullable __autoreleasing *)error;
-
 
 // /// Construct image feature value from CGImage (orientation is assumed to be kCGImagePropertyOrientationUp)
 // + (nullable instancetype)featureValueWithCGImage:(CGImageRef)cgImage
@@ -89,7 +85,6 @@
 //                                       constraint:(MLImageConstraint *)constraint
 //                                          options:(nullable NSDictionary<MLFeatureValueImageOption, id> *)options
 //                                            error:(NSError * _Nullable __autoreleasing *)error;
-
 
 // @end
 

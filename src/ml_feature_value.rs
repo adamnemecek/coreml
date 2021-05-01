@@ -12,7 +12,6 @@
 // #import <CoreVideo/CVPixelBuffer.h>
 // #import <CoreML/MLExport.h>
 
-
 // NS_ASSUME_NONNULL_BEGIN
 
 // /*!
@@ -70,8 +69,6 @@
 //  */
 // + (nullable instancetype)featureValueWithDictionary:(NSDictionary<id, NSNumber *> *)value
 //                                               error:(NSError **)error;
-
-
 
 // - (BOOL)isEqualToFeatureValue:(MLFeatureValue *)value;
 
