@@ -16,6 +16,16 @@ use crate::prelude::*;
 //     MLTaskStateFailed = 5,
 // };
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+#[repr(i32)]
+pub enum MLTaskState {
+    Suspended = 1,
+    Running = 2,
+    Cancelling = 3,
+    Completed = 4,
+    Failed = 5,
+}
+
 // /*!
 //  * Class that abstracts state transitions and basic task controls.
 //  */

@@ -37,8 +37,6 @@ foreign_obj_type! {
 
 impl MLKeyRef {
     pub fn name(&self) -> &str {
-        unsafe {
-            crate::nsstring_as_str(msg_send![self, name])
-        }
+        unsafe { crate::nsstring_as_str(msg_send![self, name]) }
     }
 }
