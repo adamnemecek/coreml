@@ -121,6 +121,39 @@ impl MLMultiArray {
     //                                  deallocator:(void (^_Nullable)(void *bytes))deallocator
     //                                        error:(NSError **)error;
 
+    pub fn new_with_data_pointer(
+        shape: &[u32],
+        data_type: MLMultiArrayDataType,
+    ) -> Result<Self, NSError> {
+        // let shape = vec![1, 2, 3];
+        todo!()
+        // use cocoa_foundation::base::{
+        //     id,
+        //     nil,
+        // };
+        // use cocoa_foundation::foundation::NSArray;
+        // // use cocoa_foundation::foundation::NSNumber;
+        // let shape: Vec<_> = shape
+        //     .iter()
+        //     .map(|x| unsafe {
+        //         let a: id = std::mem::transmute(NSNumber::new(*x));
+        //         a
+        //     })
+        //     .collect();
+        // let shape = unsafe { NSArray::arrayWithObjects(nil, &shape) };
+
+        // unsafe {
+        //     // let class = class!(MLMultiArray);
+        //     // msg_send![class, new]
+        //     let class = class!(MLMultiArray);
+        //     let alloc: *const MLMultiArrayRef = msg_send![class, alloc];
+        //     try_objc! { err =>
+        //         msg_send![alloc, initWithShape: shape
+        //                               dataType: data_type
+        //                                  error: &mut err]
+        //     }
+        // }
+    }
     // @end
 }
 

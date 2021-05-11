@@ -17,6 +17,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLModelDescription : NSObject <NSSecureCoding>
 
+pub enum MLModelDescriptionFFI {}
+
+foreign_obj_type! {
+    type CType = MLModelDescriptionFFI;
+    pub struct MLModelDescription;
+    pub struct MLModelDescriptionRef;
+}
+
 // /// Description of the inputs to the model
 // @property (readonly, nonatomic) NSDictionary<NSString *, MLFeatureDescription *> *inputDescriptionsByName;
 
@@ -53,14 +61,18 @@ use crate::prelude::*;
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLModelDescription (MLUpdateAdditions)
 
-// // Indicates if the model has to been configured for updation using model update API.
-// @property (readonly, nonatomic) BOOL isUpdatable;
+impl MLModelDescriptionRef {
+    // // Indicates if the model has to been configured for updation using model update API.
+    // @property (readonly, nonatomic) BOOL isUpdatable;
+    pub fn is_updatable(&self) -> bool {
+        unsafe { msg_send![self, isUpdatable] }
+    }
 
-// // Allows for access of each training input as a feature description.
-// @property (readonly, nonatomic) NSDictionary<NSString *, MLFeatureDescription *> *trainingInputDescriptionsByName;
+    // // Allows for access of each training input as a feature description.
+    // @property (readonly, nonatomic) NSDictionary<NSString *, MLFeatureDescription *> *trainingInputDescriptionsByName;
 
-// @end
-
+    // @end
+}
 // /*!
 //  * Additions to model descriptions related to model parameters
 //  */
