@@ -10,9 +10,31 @@ use crate::prelude::*;
 //  * of the same type.
 //  */
 // API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0))
-// ML_EXPORT
+// ML_EXPORTMLSequence
 // @interface MLSequence : NSObject <NSSecureCoding>
 
+pub enum MLSequenceFFI {}
+
+foreign_obj_type! {
+    type CType = MLSequenceFFI;
+    pub struct MLSequence;
+    pub struct MLSequenceRef;
+}
+
+impl MLSequence {
+    pub fn empty_with_type(type_: MLFeatureType) -> Self {
+        unsafe {
+            let class = class!(MLSequence);
+            msg_send![class, emptySequenceWithType: type_]
+        }
+    }
+}
+
+impl MLSequenceRef {
+    pub fn type_(&self) -> MLFeatureType {
+        unsafe { msg_send![self, type] }
+    }
+}
 // /// Type of values held
 // @property (readonly, nonatomic) MLFeatureType type;
 

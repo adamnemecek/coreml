@@ -5,6 +5,8 @@ pub use crate::{
     MLMultiArray,
     MLMultiArrayDataType,
     MLMultiArrayRef,
+    MLSequence,
+    MLSequenceRef,
     NSError,
     NSNumber,
     NSNumberRef,

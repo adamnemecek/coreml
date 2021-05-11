@@ -3,7 +3,7 @@ use crate::prelude::*;
 // /*!
 //  * Supported data type enumeration
 //  */
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum MLFeatureType {
     //
     Invalid = 0,

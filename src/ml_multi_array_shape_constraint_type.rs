@@ -14,6 +14,6 @@ use crate::prelude::*;
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum MLMultiArrayShapeConstraintType {
     Unspecified = 1, // An unconstrained shape. Any multi array satisfies this constraint.
-    Enumerated = 2, // Limited to an enumerated set of shapes
-    Range = 3,      // Allow full specified range per dimension
+    Enumerated = 2,  // Limited to an enumerated set of shapes
+    Range = 3,       // Allow full specified range per dimension
 }
