@@ -284,3 +284,6 @@ pub use ml_writable::*;
 
 mod ns_error;
 pub use ns_error::*;
+
+mod ns_number;
+pub use ns_number::*;

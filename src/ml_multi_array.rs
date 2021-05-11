@@ -84,7 +84,11 @@ impl MLMultiArray {
     //                                  error:(NSError **)error;
 
     pub fn new_with_shape(shape: &[u32], data_type: MLMultiArrayDataType) -> Result<Self, NSError> {
-        let shape = vec![1,2,3];
+        // let shape = vec![1, 2, 3];
+        use cocoa_foundation::foundation::NSArray;
+        // use cocoa_foundation::foundation::NSNumber;
+        // let shape = shape.map(|x| )
+
         unsafe {
             // let class = class!(MLMultiArray);
             // msg_send![class, new]
