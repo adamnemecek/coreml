@@ -9,6 +9,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLMultiArrayShapeConstraint : NSObject <NSSecureCoding>
 
+pub enum MLMultiArrayShapeConstraintFFI {}
+
+foreign_obj_type! {
+    type CType = MLMultiArrayShapeConstraintFFI;
+    pub struct MLMultiArrayShapeConstraint;
+    pub struct MLMultiArrayShapeConstraintRef;
+}
+
 // @property (readonly, nonatomic) MLMultiArrayShapeConstraintType type;
 
 // // Size of each dimension i must fall within sizeRangeForDimension[i].rangeValue

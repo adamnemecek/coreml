@@ -1,4 +1,9 @@
 use crate::prelude::*;
+
+use cocoa_foundation::foundation::{
+    NSInteger,
+};
+
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLExport.h>
 
@@ -15,6 +20,18 @@ use crate::prelude::*;
 //     MLMultiArrayDataTypeInt32   = 0x20000 | 32,
 // } API_AVAILABLE(macos(10.13), ios(11.0), watchos(4.0), tvos(11.0));
 
+#[repr(i64)]
+#[derive(Clone, Copy, PartialEq, Eq, Hash)]
+pub enum MLMultiArrayDataType {
+    Double = 0x10000 | 64,
+    //API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0))
+    // Float64  = 0x10000 | 64,
+    Float32 = 0x10000 | 32,
+    //API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0))
+    // Float    = 0x10000 | 32,
+    Int32 = 0x20000 | 32,
+}
+
 // /*!
 //  * Multidimensional Array
 //  */
@@ -22,43 +39,68 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLMultiArray : NSObject <NSSecureCoding>
 
-// /// Unsafe pointer to underlying buffer holding the data
-// @property (readonly, nonatomic) void *dataPointer;
+pub enum MLMultiArrayFFI {}
 
-// /// Type of element held
-// @property (readonly, nonatomic) MLMultiArrayDataType dataType;
+foreign_obj_type! {
+    type CType = MLMultiArrayFFI;
+    pub struct MLMultiArray;
+    pub struct MLMultiArrayRef;
+}
 
-// /// An array containing the sizes of each dimension in the multiarray
-// @property (readonly, nonatomic) NSArray<NSNumber *> *shape;
+impl MLMultiArrayRef {
+    // /// Unsafe pointer to underlying buffer holding the data
+    // @property (readonly, nonatomic) void *dataPointer;
+    pub fn data_pointer(&self) -> *mut std::ffi::c_void {
+        unsafe { msg_send![self, dataPointer] }
+    }
 
-// /*!
-//  * An array containing the stride in memory for each dimension.
-//  * The element referred to by a multidimensional index is located at an offset equal to
-//  * sum_d index[d]*strides[d]. This offset is in the units of the specified dataType.
-//  */
-// @property (readonly, nonatomic) NSArray<NSNumber *> *strides;
+    // /// Type of element held
+    // @property (readonly, nonatomic) MLMultiArrayDataType dataType;
+    pub fn data_type(&self) -> MLMultiArrayDataType {
+        unsafe { msg_send![self, dataType] }
+    }
 
-// /// Count of total number of elements
-// @property (readonly, nonatomic) NSInteger count;
+    // /// An array containing the sizes of each dimension in the multiarray
+    // @property (readonly, nonatomic) NSArray<NSNumber *> *shape;
 
-// @end
+    // /*!
+    //  * An array containing the stride in memory for each dimension.
+    //  * The element referred to by a multidimensional index is located at an offset equal to
+    //  * sum_d index[d]*strides[d]. This offset is in the units of the specified dataType.
+    //  */
+    // @property (readonly, nonatomic) NSArray<NSNumber *> *strides;
 
-// @interface MLMultiArray (Creation)
+    // /// Count of total number of elements
+    // @property (readonly, nonatomic) NSInteger count;
+    pub fn count(&self) -> NSInteger {
+        unsafe { msg_send![self, count] }
+    }
 
-// /// Create by C-style contiguous array by allocating and managing the necessary memory
-// - (nullable instancetype)initWithShape:(NSArray<NSNumber *> *)shape
-//                               dataType:(MLMultiArrayDataType)dataType
-//                                  error:(NSError **)error;
+}
+    // @end
+impl MLMultiArray {
+    // @interface MLMultiArray (Creation)
 
-// /// Create by wrapping existing data
-// - (nullable instancetype)initWithDataPointer:(void *)dataPointer
-//                                        shape:(NSArray<NSNumber *> *)shape
-//                                     dataType:(MLMultiArrayDataType)dataType
-//                                      strides:(NSArray<NSNumber *> *)strides
-//                                  deallocator:(void (^_Nullable)(void *bytes))deallocator
-//                                        error:(NSError **)error;
+    // /// Create by C-style contiguous array by allocating and managing the necessary memory
+    // - (nullable instancetype)initWithShape:(NSArray<NSNumber *> *)shape
+    //                               dataType:(MLMultiArrayDataType)dataType
+    //                                  error:(NSError **)error;
 
-// @end
+    pub fn new_with_shape(shape: &[u32], data_type: MLMultiArrayDataType) -> Self {
+        todo!()
+    }
+
+
+    // /// Create by wrapping existing data
+    // - (nullable instancetype)initWithDataPointer:(void *)dataPointer
+    //                                        shape:(NSArray<NSNumber *> *)shape
+    //                                     dataType:(MLMultiArrayDataType)dataType
+    //                                      strides:(NSArray<NSNumber *> *)strides
+    //                                  deallocator:(void (^_Nullable)(void *bytes))deallocator
+    //                                        error:(NSError **)error;
+
+    // @end
+}
 
 // @interface MLMultiArray (Concatenating)
 
