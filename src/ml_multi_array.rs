@@ -1,8 +1,6 @@
 use crate::prelude::*;
 
-use cocoa_foundation::foundation::{
-    NSInteger,
-};
+use cocoa_foundation::foundation::NSInteger;
 
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLExport.h>
@@ -75,9 +73,8 @@ impl MLMultiArrayRef {
     pub fn count(&self) -> NSInteger {
         unsafe { msg_send![self, count] }
     }
-
 }
-    // @end
+// @end
 impl MLMultiArray {
     // @interface MLMultiArray (Creation)
 
@@ -86,10 +83,18 @@ impl MLMultiArray {
     //                               dataType:(MLMultiArrayDataType)dataType
     //                                  error:(NSError **)error;
 
-    pub fn new_with_shape(shape: &[u32], data_type: MLMultiArrayDataType) -> Self {
-        todo!()
+    pub fn new_with_shape(shape: &[u32], data_type: MLMultiArrayDataType) -> Result<Self, NSError> {
+        let shape = vec![1,2,3];
+        unsafe {
+            // let class = class!(MLMultiArray);
+            // msg_send![class, new]
+            let class = class!(MLMultiArray);
+            let alloc: *const MLMultiArrayRef = msg_send![class, alloc];
+            try_objc! { err =>
+                msg_send![alloc, initWithShape: shape dataType: data_type error: &mut err]
+            }
+        }
     }
-
 
     // /// Create by wrapping existing data
     // - (nullable instancetype)initWithDataPointer:(void *)dataPointer

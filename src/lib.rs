@@ -67,6 +67,28 @@ unsafe fn nsarray_to_vec<T: 'static>(array: *const Object) -> Vec<T> {
     ret
 }
 
+#[macro_export]
+macro_rules! try_objc {
+    {
+        $err: ident => $body:expr
+    } => {
+        {
+            let mut $err: *mut NSError = ::std::ptr::null_mut();
+            let value = $body;
+            if !$err.is_null() {
+                // let desc: *mut Object = msg_send![$err_name, localizedDescription];
+                // let compile_error: *const std::os::raw::c_char = msg_send![desc, UTF8String];
+                // let message = CStr::from_ptr(compile_error).to_string_lossy().into_owned();
+                // let () = msg_send![$err, release];
+                let e = $err.as_ref().unwrap();
+                return Err(e.to_owned());
+                // return Err($err.as_ref().unwrap());
+            }
+            Ok(value)
+        }
+    };
+}
+
 #[inline]
 fn obj_drop<T>(p: *mut T) {
     unsafe { msg_send![(p as *mut Object), release] }
