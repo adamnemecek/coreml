@@ -85,9 +85,20 @@ impl MLMultiArray {
 
     pub fn new_with_shape(shape: &[u32], data_type: MLMultiArrayDataType) -> Result<Self, NSError> {
         // let shape = vec![1, 2, 3];
+        use cocoa_foundation::base::{
+            id,
+            nil,
+        };
         use cocoa_foundation::foundation::NSArray;
         // use cocoa_foundation::foundation::NSNumber;
-        // let shape = shape.map(|x| )
+        let shape: Vec<_> = shape
+            .iter()
+            .map(|x| unsafe {
+                let a: id = std::mem::transmute(NSNumber::new(*x));
+                a
+            })
+            .collect();
+        let shape = unsafe { NSArray::arrayWithObjects(nil, &shape) };
 
         unsafe {
             // let class = class!(MLMultiArray);
