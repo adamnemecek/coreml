@@ -106,7 +106,9 @@ impl MLMultiArray {
             let class = class!(MLMultiArray);
             let alloc: *const MLMultiArrayRef = msg_send![class, alloc];
             try_objc! { err =>
-                msg_send![alloc, initWithShape: shape dataType: data_type error: &mut err]
+                msg_send![alloc, initWithShape: shape
+                                      dataType: data_type
+                                         error: &mut err]
             }
         }
     }
