@@ -69,7 +69,6 @@ impl MLFeatureValueRef {
 
     // /// Populated value if the type is MLFeatureTypeSequence
     // @property (readonly, nullable, nonatomic) MLSequence *sequenceValue API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
-
 }
 
 impl MLFeatureValue {
