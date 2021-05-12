@@ -14,6 +14,14 @@ use crate::prelude::*;
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLUpdateContext : NSObject
 
+pub enum MLUpdateContextFFI {}
+
+foreign_obj_type! {
+    type CType = MLUpdateContextFFI;
+    pub struct MLUpdateContext;
+    pub struct MLUpdateContextRef;
+}
+
 // // Reference to the update task that invokved the progress or completion handlers.
 // @property (readonly, nonatomic) MLUpdateTask *task;
 

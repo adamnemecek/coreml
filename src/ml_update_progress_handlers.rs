@@ -12,16 +12,26 @@ use crate::prelude::*;
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLUpdateProgressHandlers : NSObject
 
-// - (instancetype)initForEvents:(MLUpdateProgressEvent)interestedEvents
-//               progressHandler:(nullable void (^)(MLUpdateContext * context))progressHandler
-//             completionHandler:(void (^)(MLUpdateContext * context))completionHandler;
+pub enum MLUpdateProgressHandlersFFI {}
 
-// // cannot construct MLUpdateTask without parameters.
-// - (instancetype)init NS_UNAVAILABLE;
+foreign_obj_type! {
+    type CType = MLUpdateProgressHandlersFFI;
+    pub struct MLUpdateProgressHandlers;
+    pub struct MLUpdateProgressHandlersRef;
+}
 
-// // cannot construct MLUpdateTask without parameters.
-// + (id)new NS_UNAVAILABLE;
+impl MLUpdateProgressHandlersRef {
+    // - (instancetype)initForEvents:(MLUpdateProgressEvent)interestedEvents
+    //               progressHandler:(nullable void (^)(MLUpdateContext * context))progressHandler
+    //             completionHandler:(void (^)(MLUpdateContext * context))completionHandler;
 
-// @end
+    // // cannot construct MLUpdateTask without parameters.
+    // - (instancetype)init NS_UNAVAILABLE;
 
-// NS_ASSUME_NONNULL_END
+    // // cannot construct MLUpdateTask without parameters.
+    // + (id)new NS_UNAVAILABLE;
+
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}

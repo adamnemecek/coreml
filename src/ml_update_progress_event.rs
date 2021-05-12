@@ -16,4 +16,11 @@ use crate::prelude::*;
 //     MLUpdateProgressEventMiniBatchEnd = 1 << 2,
 // };
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum MLUpdateProgressEvent {
+    TrainingBegin = 1 << 0,
+    EpochEnd = 1 << 1,
+    MiniBatchEnd = 1 << 2,
+}
+
 // NS_ASSUME_NONNULL_END
