@@ -17,6 +17,13 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLFeatureDescription : NSObject<NSCopying, NSSecureCoding>
 
+pub enum MLFeatureDescriptionFFI {}
+foreign_obj_type! {
+    type CType = MLFeatureDescriptionFFI;
+    pub struct MLFeatureDescription;
+    pub struct MLFeatureDescriptionRef;
+}
+
 // /// Name of feature
 // @property (readonly, nonatomic, copy) NSString *name;
 

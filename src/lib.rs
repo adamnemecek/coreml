@@ -154,6 +154,20 @@ macro_rules! foreign_obj_type {
     };
 }
 
+#[repr(C)]
+#[derive(Copy, Clone)]
+pub struct NSRange {
+    pub location: NSUInteger,
+    pub length: NSUInteger,
+}
+
+impl NSRange {
+    #[inline]
+    pub fn new(location: NSUInteger, length: NSUInteger) -> Self {
+        Self { location, length }
+    }
+}
+
 pub mod prelude;
 
 mod ml_array_batch_provider;

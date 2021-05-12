@@ -1,4 +1,6 @@
 pub use crate::{
+    MLFeatureDescription,
+    MLFeatureDescriptionRef,
     MLFeatureType,
     MLFeatureValue,
     MLFeatureValueRef,
@@ -12,4 +14,5 @@ pub use crate::{
     NSError,
     NSNumber,
     NSNumberRef,
+    NSRange,
 };
