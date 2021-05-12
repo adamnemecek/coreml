@@ -1,3 +1,5 @@
+use cocoa_foundation::foundation::NSInteger;
+
 use crate::prelude::*;
 // #import <Foundation/Foundation.h>
 // #import <CoreML/MLExport.h>
@@ -8,10 +10,26 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLImageSize : NSObject <NSSecureCoding>
 
-// @property (readonly) NSInteger pixelsWide;
+pub enum MLImageSizeFFI {}
 
-// @property (readonly) NSInteger pixelsHigh;
+foreign_obj_type! {
+    type CType = MLImageSizeFFI;
+    pub struct MLImageSize;
+    pub struct MLImageSizeRef;
+}
 
-// @end
+impl MLImageSizeRef {
+    // @property (readonly) NSInteger pixelsWide;
+    pub fn pixels_wide(&self) -> NSInteger {
+        unsafe { msg_send![self, pixelsWide] }
+    }
 
-// NS_ASSUME_NONNULL_END
+    // @property (readonly) NSInteger pixelsHigh;
+    pub fn pixels_high(&self) -> NSInteger {
+        unsafe { msg_send![self, pixelsHigh] }
+    }
+
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}
