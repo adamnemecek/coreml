@@ -19,4 +19,18 @@ use crate::prelude::*;
 
 // @end
 
+pub enum MLPredictionOptionsFFI {}
+
+foreign_obj_type! {
+    type CType = MLPredictionOptionsFFI;
+    pub struct MLPredictionOptions;
+    pub struct MLPredictionOptionsRef;
+}
+
+impl MLPredictionOptionsRef {
+    pub fn uses_cpu_only(&self) -> bool {
+        unsafe { msg_send![self, usesCPUOnly] }
+    }
+}
+
 // NS_ASSUME_NONNULL_END
