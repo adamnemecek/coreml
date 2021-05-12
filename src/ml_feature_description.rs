@@ -1,12 +1,4 @@
 use crate::prelude::*;
-// #import <Foundation/Foundation.h>
-// #import <CoreML/MLFeatureType.h>
-// #import <CoreML/MLFeatureValue.h>
-// #import <CoreML/MLDictionaryConstraint.h>
-// #import <CoreML/MLMultiArrayConstraint.h>
-// #import <CoreML/MLImageConstraint.h>
-// #import <CoreML/MLSequenceConstraint.h>
-// #import <CoreML/MLExport.h>
 
 // NS_ASSUME_NONNULL_BEGIN
 
