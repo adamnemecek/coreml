@@ -24,19 +24,36 @@ foreign_obj_type! {
     pub struct MLFeatureDescriptionRef;
 }
 
-// /// Name of feature
-// @property (readonly, nonatomic, copy) NSString *name;
+impl MLFeatureDescriptionRef {
+    /// Name of feature
+    // @property (readonly, nonatomic, copy) NSString *name;
+    pub fn name(&self) -> &str {
+        unsafe {
+            let name = msg_send![self, name];
+            crate::nsstring_as_str(name)
+        }
+    }
 
-// /// Type of data
-// @property (readonly, nonatomic) MLFeatureType type;
+    /// Type of data
+    // @property (readonly, nonatomic) MLFeatureType type;
+    pub fn type_(&self) -> MLFeatureType {
+        unsafe { msg_send![self, type] }
+    }
 
-// /// Whether this feature can take an undefined value or not
-// @property (readonly, nonatomic, getter=isOptional) BOOL optional;
+    /// Whether this feature can take an undefined value or not
+    // @property (readonly, nonatomic, getter=isOptional) BOOL optional;
+    pub fn optional(&self) -> bool {
+        unsafe { msg_send![self, optional] }
+    }
 
-// /// Check if MLFeatureValue is valid based on this description
-// - (BOOL)isAllowedValue:(MLFeatureValue *)value;
+    /// Check if MLFeatureValue is valid based on this description
+    // - (BOOL)isAllowedValue:(MLFeatureValue *)value;
+    pub fn is_allowed_value(&self, value: &MLFeatureValueRef) -> bool {
+        unsafe { msg_send![self, isAllowedValue: value] }
+    }
 
-// @end
+    // @end
+}
 
 // /*!
 //  * Feature value constraints for specific types
