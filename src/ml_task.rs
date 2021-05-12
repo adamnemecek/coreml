@@ -33,27 +33,37 @@ pub enum MLTaskState {
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLTask : NSObject
 
-// // Unique identifier for the task.
-// @property (readonly, copy, nonatomic) NSString *taskIdentifier;
+pub enum MLTaskFFI {}
 
-// // Represents the current state of task.
-// @property (readonly, assign, atomic) MLTaskState state;
+foreign_obj_type! {
+    type CType = MLTaskFFI;
+    pub struct MLTask;
+    pub struct MLTaskRef;
+}
 
-// // Indicates error if the task failed for any reason.
-// @property (readonly, copy, atomic, nullable) NSError *error;
+impl MLTaskRef {
+    // // Unique identifier for the task.
+    // @property (readonly, copy, nonatomic) NSString *taskIdentifier;
 
-// // When called, resumes the task and changes state to "Running".
-// - (void)resume;
+    // // Represents the current state of task.
+    // @property (readonly, assign, atomic) MLTaskState state;
 
-// // When called, starts cancelling the task and changes the state to "Cancelling".
-// - (void)cancel;
+    // // Indicates error if the task failed for any reason.
+    // @property (readonly, copy, atomic, nullable) NSError *error;
 
-// // cannot construct MLTask without parameters.
-// - (instancetype)init NS_UNAVAILABLE;
+    // // When called, resumes the task and changes state to "Running".
+    // - (void)resume;
 
-// // cannot construct MLTask without parameters.
-// + (id)new NS_UNAVAILABLE;
+    // // When called, starts cancelling the task and changes the state to "Cancelling".
+    // - (void)cancel;
 
-// @end
+    // // cannot construct MLTask without parameters.
+    // - (instancetype)init NS_UNAVAILABLE;
 
-// NS_ASSUME_NONNULL_END
+    // // cannot construct MLTask without parameters.
+    // + (id)new NS_UNAVAILABLE;
+
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}
