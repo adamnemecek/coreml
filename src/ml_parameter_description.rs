@@ -11,16 +11,31 @@ use crate::prelude::*;
 // ML_EXPORT
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLParameterDescription : NSObject<NSSecureCoding>
+pub enum MLParameterDescriptionFFI {}
 
-// // Name and type of the parameter
-// @property (readonly, nonatomic) MLParameterKey *key;
+foreign_obj_type! {
+    type CType = MLParameterDescriptionFFI;
+    pub struct MLParameterDescription;
+    pub struct MLParameterDescriptionRef;
+}
 
-// // Default value of the parameter
-// @property (readonly, nonatomic) id defaultValue;
+impl MLParameterDescriptionRef {
+    // // Name and type of the parameter
+    // @property (readonly, nonatomic) MLParameterKey *key;
+    pub fn key(&self) -> &MLParameterKeyRef {
+        unsafe { msg_send![self, key] }
+    }
 
-// // Any applicable constraint on the parameter value
-// @property (readonly, nonatomic, nullable) MLNumericConstraint *numericConstraint;
+    // // Default value of the parameter
+    // @property (readonly, nonatomic) id defaultValue;
 
-// @end
+    // // Any applicable constraint on the parameter value
+    // @property (readonly, nonatomic, nullable) MLNumericConstraint *numericConstraint;
+    pub fn numeric_constraint(&self) -> &MLNumericConstraintRef {
+        unsafe { msg_send![self, numericConstraint] }
+    }
 
-// NS_ASSUME_NONNULL_END
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}

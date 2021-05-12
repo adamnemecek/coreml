@@ -10,15 +10,31 @@ use crate::prelude::*;
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLNumericConstraint : NSObject<NSSecureCoding>
 
-// // Minimum value of the parameter can take.
-// @property (readonly, nonatomic) NSNumber *minNumber;
+pub enum MLNumericConstraintFFI {}
 
-// // Maximum value of the parameter can take.
-// @property (readonly, nonatomic) NSNumber *maxNumber;
+foreign_obj_type! {
+    type CType = MLNumericConstraintFFI;
+    pub struct MLNumericConstraint;
+    pub struct MLNumericConstraintRef;
+}
 
-// // If not nil, list of restricted set of values the parameter can take.
-// @property (readonly, nonatomic, nullable) NSSet<NSNumber *> *enumeratedNumbers;
+impl MLNumericConstraintRef {
+    // // Minimum value of the parameter can take.
+    // @property (readonly, nonatomic) NSNumber *minNumber;
+    pub fn min_number(&self) -> &NSNumberRef {
+        unsafe { msg_send![self, minNumber] }
+    }
 
-// @end
+    // // Maximum value of the parameter can take.
+    // @property (readonly, nonatomic) NSNumber *maxNumber;
+    pub fn max_number(&self) -> &NSNumberRef {
+        unsafe { msg_send![self, maxNumber] }
+    }
 
-// NS_ASSUME_NONNULL_END
+    // // If not nil, list of restricted set of values the parameter can take.
+    // @property (readonly, nonatomic, nullable) NSSet<NSNumber *> *enumeratedNumbers;
+
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}
