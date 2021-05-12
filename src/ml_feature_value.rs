@@ -26,54 +26,89 @@ foreign_obj_type! {
     pub struct MLFeatureValueRef;
 }
 
-// /// Type of the value for which the corresponding property below is held
-// @property (readonly, nonatomic) MLFeatureType type;
+impl MLFeatureValueRef {
+    // /// Type of the value for which the corresponding property below is held
+    // @property (readonly, nonatomic) MLFeatureType type;
+    pub fn type_(&self) -> MLFeatureType {
+        unsafe { msg_send![self, type] }
+    }
 
-// /// True if the value represents a missing or undefined value
-// @property (readonly, nonatomic, getter=isUndefined) BOOL undefined;
+    // /// True if the value represents a missing or undefined value
+    // @property (readonly, nonatomic, getter=isUndefined) BOOL undefined;
 
-// /// Populated value if the type is MLFeatureTypeInt64
-// @property (readonly, nonatomic) int64_t int64Value;
+    pub fn is_undefined(&self) -> bool {
+        unsafe { msg_send![self, undefined] }
+    }
 
-// /// Populated value if the type is MLFeatureTypeDouble
-// @property (readonly, nonatomic) double doubleValue;
+    // /// Populated value if the type is MLFeatureTypeInt64
+    // @property (readonly, nonatomic) int64_t int64Value;
+    pub fn int64_value(&self) -> i64 {
+        unsafe { msg_send![self, int64Value] }
+    }
 
-// /// Populated value if the type is MLFeatureTypeString
-// @property (readonly, nonatomic, copy) NSString *stringValue;
+    // /// Populated value if the type is MLFeatureTypeDouble
+    // @property (readonly, nonatomic) double doubleValue;
+    pub fn double_value(&self) -> f64 {
+        unsafe { msg_send![self, doubleValue] }
+    }
 
-// /// Populated value if the type is MLFeatureTypeMultiArray
-// @property (readonly, nullable, nonatomic) MLMultiArray *multiArrayValue;
+    // /// Populated value if the type is MLFeatureTypeString
+    // @property (readonly, nonatomic, copy) NSString *stringValue;
+    pub fn string_value(&self) -> i64 {
+        todo!()
+    }
 
-// /// Populated value if the type is MLFeatureTypeDictionary
-// @property (readonly, nonatomic) NSDictionary<id, NSNumber *> *dictionaryValue;
+    // /// Populated value if the type is MLFeatureTypeMultiArray
+    // @property (readonly, nullable, nonatomic) MLMultiArray *multiArrayValue;
 
-// /// Populated value if the type is MLFeatureTypeImage
-// @property (readonly, nullable, nonatomic) CVPixelBufferRef imageBufferValue;
+    // /// Populated value if the type is MLFeatureTypeDictionary
+    // @property (readonly, nonatomic) NSDictionary<id, NSNumber *> *dictionaryValue;
 
-// /// Populated value if the type is MLFeatureTypeSequence
-// @property (readonly, nullable, nonatomic) MLSequence *sequenceValue API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
+    // /// Populated value if the type is MLFeatureTypeImage
+    // @property (readonly, nullable, nonatomic) CVPixelBufferRef imageBufferValue;
 
-// /// Hold an object with the specified value
-// + (instancetype)featureValueWithInt64:(int64_t)value;
-// + (instancetype)featureValueWithDouble:(double)value;
-// + (instancetype)featureValueWithString:(NSString *)value;
-// + (instancetype)featureValueWithMultiArray:(MLMultiArray *)value;
-// + (instancetype)featureValueWithPixelBuffer:(CVPixelBufferRef)value;
-// + (instancetype)featureValueWithSequence:(MLSequence *)sequence API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
+    // /// Populated value if the type is MLFeatureTypeSequence
+    // @property (readonly, nullable, nonatomic) MLSequence *sequenceValue API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
 
-// /// Represent an undefined value of a specified type
-// + (instancetype)undefinedFeatureValueWithType:(MLFeatureType)type;
+}
 
-// /*!
-//  * For encoding a sparse feature set or for encoding probabilities. Input keys that are not
-//  * NSNumber * or NSString * are rejected on construction and return a MLModelErrorFeatureTypeMismatch
-//  * error. Further validation for consistency occurs on evaluation
-//  */
-// + (nullable instancetype)featureValueWithDictionary:(NSDictionary<id, NSNumber *> *)value
-//                                               error:(NSError **)error;
+impl MLFeatureValue {
+    // /// Hold an object with the specified value
+    // + (instancetype)featureValueWithInt64:(int64_t)value;
+    pub fn with_i64(v: i64) -> Self {
+        unsafe {
+            let class = class!(MLFeatureValue);
+            msg_send![class, featureValueWithInt64: v]
+        }
+    }
 
-// - (BOOL)isEqualToFeatureValue:(MLFeatureValue *)value;
+    // + (instancetype)featureValueWithDouble:(double)value;
+    pub fn with_f64(v: f64) -> Self {
+        unsafe {
+            let class = class!(MLFeatureValue);
+            msg_send![class, featureValueWithDouble: v]
+        }
+    }
 
-// @end
+    // + (instancetype)featureValueWithString:(NSString *)value;
+    // + (instancetype)featureValueWithMultiArray:(MLMultiArray *)value;
+    // + (instancetype)featureValueWithPixelBuffer:(CVPixelBufferRef)value;
+    // + (instancetype)featureValueWithSequence:(MLSequence *)sequence API_AVAILABLE(macos(10.14), ios(12.0), watchos(5.0), tvos(12.0));
 
-// NS_ASSUME_NONNULL_END
+    // /// Represent an undefined value of a specified type
+    // + (instancetype)undefinedFeatureValueWithType:(MLFeatureType)type;
+
+    // /*!
+    //  * For encoding a sparse feature set or for encoding probabilities. Input keys that are not
+    //  * NSNumber * or NSString * are rejected on construction and return a MLModelErrorFeatureTypeMismatch
+    //  * error. Further validation for consistency occurs on evaluation
+    //  */
+    // + (nullable instancetype)featureValueWithDictionary:(NSDictionary<id, NSNumber *> *)value
+    //                                               error:(NSError **)error;
+
+    // - (BOOL)isEqualToFeatureValue:(MLFeatureValue *)value;
+
+    // @end
+
+    // NS_ASSUME_NONNULL_END
+}

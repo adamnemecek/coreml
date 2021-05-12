@@ -13,6 +13,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLSequenceConstraint : NSObject <NSSecureCoding>
 
+pub enum MLSequenceConstraintFFI {}
+
+foreign_obj_type! {
+    type CType = MLSequenceConstraintFFI;
+    pub struct MLSequenceConstraint;
+    pub struct MLSequenceConstraintRef;
+}
+
 // // Description all sequence elements / values must match
 // @property (readonly, nonatomic) MLFeatureDescription *valueDescription;
 

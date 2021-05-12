@@ -1,5 +1,7 @@
 pub use crate::{
     MLFeatureType,
+    MLFeatureValue,
+    MLFeatureValueRef,
     MLKey,
     MLKeyRef,
     MLMultiArray,

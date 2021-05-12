@@ -12,4 +12,7 @@ fn main() {
     println!("{:?}", t.count());
     println!("{:?}", n);
     println!("here");
+
+    let v = MLFeatureValue::with_f64(60.0);
+    println!("{:?}", v.double_value());
 }
