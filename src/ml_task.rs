@@ -42,20 +42,39 @@ foreign_obj_type! {
 }
 
 impl MLTaskRef {
-    // // Unique identifier for the task.
+    // Unique identifier for the task.
     // @property (readonly, copy, nonatomic) NSString *taskIdentifier;
 
-    // // Represents the current state of task.
+    pub fn task_identifier(&self) -> &str {
+        unsafe {
+            let s = msg_send![self, taskIdentifier];
+            crate::nsstring_as_str(s)
+        }
+    }
+
+    // Represents the current state of task.
     // @property (readonly, assign, atomic) MLTaskState state;
+    pub fn state(&self) -> MLTaskState {
+        unsafe { msg_send![self, state] }
+    }
 
-    // // Indicates error if the task failed for any reason.
+    // Indicates error if the task failed for any reason.
     // @property (readonly, copy, atomic, nullable) NSError *error;
+    pub fn error(&self) -> Option<&NSErrorRef> {
+        unsafe { msg_send![self, error] }
+    }
 
-    // // When called, resumes the task and changes state to "Running".
+    // When called, resumes the task and changes state to "Running".
     // - (void)resume;
+    pub fn resume(&self) {
+        unsafe { msg_send![self, resume] }
+    }
 
-    // // When called, starts cancelling the task and changes the state to "Cancelling".
+    // When called, starts cancelling the task and changes the state to "Cancelling".
     // - (void)cancel;
+    pub fn cancel(&self) {
+        unsafe { msg_send![self, cancel] }
+    }
 
     // // cannot construct MLTask without parameters.
     // - (instancetype)init NS_UNAVAILABLE;

@@ -12,6 +12,7 @@ pub use crate::{
     MLSequence,
     MLSequenceRef,
     NSError,
+    NSErrorRef,
     NSNumber,
     NSNumberRef,
     NSRange,
