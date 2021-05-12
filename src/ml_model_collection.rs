@@ -15,6 +15,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLModelCollection : NSObject
 
+pub enum MLModelCollectionFFI {}
+
+foreign_obj_type! {
+    type CType = MLModelCollectionFFI;
+    pub struct MLModelCollection;
+    pub struct MLModelCollectionRef;
+}
+
 // /// The identifier of the model collection you want to access, as configured in the Core ML Model Deployment dashboard.
 // @property (readonly, nonatomic, copy) NSString *identifier;
 
