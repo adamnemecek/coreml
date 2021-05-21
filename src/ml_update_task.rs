@@ -22,41 +22,53 @@ foreign_obj_type! {
     type ParentType = MLTaskRef;
 }
 
-// // Update via task control with completion handler
-// + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
-//                                     trainingData:(id<MLBatchProvider>)trainingData
-//                                    configuration:(nullable MLModelConfiguration *)configuration
-//                                completionHandler:(void (^)(MLUpdateContext * context))completionHandler
-//                                            error:(NSError * _Nullable * _Nullable)error;
+impl MLUpdateTask {
+    // // Update via task control with completion handler
+    // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
+    //                                     trainingData:(id<MLBatchProvider>)trainingData
+    //                                    configuration:(nullable MLModelConfiguration *)configuration
+    //                                completionHandler:(void (^)(MLUpdateContext * context))completionHandler
+    //                                            error:(NSError * _Nullable * _Nullable)error;
 
-// // Update via task control with completion handler supplying default configuration
-// + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
-//                            trainingData:(id<MLBatchProvider>)trainingData
-//                       completionHandler:(void (^)(MLUpdateContext * _Nonnull))completionHandler
-//                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
+    pub fn update_task_for_model() -> Self {
+        todo!()
+    }
+    // // Update via task control with completion handler supplying default configuration
+    // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
+    //                            trainingData:(id<MLBatchProvider>)trainingData
+    //                       completionHandler:(void (^)(MLUpdateContext * _Nonnull))completionHandler
+    //                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
+    // pub fn update_task_for_model() -> Self {
+    //     todo!()
+    // }
+    // // Update via task control and custom progress callbacks
+    // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
+    //                                     trainingData:(id<MLBatchProvider>)trainingData
+    //                                    configuration:(nullable MLModelConfiguration *)configuration
+    //                                 progressHandlers:(MLUpdateProgressHandlers *)progressHandlers
+    //                                            error:(NSError * _Nullable * _Nullable)error;
 
-// // Update via task control and custom progress callbacks
-// + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
-//                                     trainingData:(id<MLBatchProvider>)trainingData
-//                                    configuration:(nullable MLModelConfiguration *)configuration
-//                                 progressHandlers:(MLUpdateProgressHandlers *)progressHandlers
-//                                            error:(NSError * _Nullable * _Nullable)error;
+    // // Update via task control and custom progress callbacks supplying default configuration
+    // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
+    //                            trainingData:(id<MLBatchProvider>)trainingData
+    //                        progressHandlers:(MLUpdateProgressHandlers *)progressHandlers
+    //                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
+}
 
-// // Update via task control and custom progress callbacks supplying default configuration
-// + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
-//                            trainingData:(id<MLBatchProvider>)trainingData
-//                        progressHandlers:(MLUpdateProgressHandlers *)progressHandlers
-//                                   error:(NSError * _Nullable __autoreleasing *)error API_AVAILABLE(macos(11.0), ios(14.0), watchos(7.0), tvos(14.0));
+impl MLUpdateTaskRef {
+    // // Request a resume with new parameters. Should be used within a progressHandler
+    // - (void)resumeWithParameters:(NSDictionary<MLParameterKey *, id> *)updateParameters;
+    pub fn resume_with_parameters(&self) {
+        todo!()
+    }
 
-// // Request a resume with new parameters. Should be used within a progressHandler
-// - (void)resumeWithParameters:(NSDictionary<MLParameterKey *, id> *)updateParameters;
+    // // cannot construct MLUpdateTask without parameters.
+    // - (instancetype)init NS_UNAVAILABLE;
 
-// // cannot construct MLUpdateTask without parameters.
-// - (instancetype)init NS_UNAVAILABLE;
+    // // cannot construct MLUpdateTask without parameters.
+    // + (id)new NS_UNAVAILABLE;
 
-// // cannot construct MLUpdateTask without parameters.
-// + (id)new NS_UNAVAILABLE;
+    // @end
 
-// @end
-
-// NS_ASSUME_NONNULL_END
+    // NS_ASSUME_NONNULL_END
+}
