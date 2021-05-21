@@ -13,6 +13,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLMultiArrayConstraint : NSObject <NSSecureCoding>
 
+pub enum MLMultiArrayConstraintFFI {}
+
+foreign_obj_type! {
+    type CType = MLMultiArrayConstraintFFI;
+    pub struct MLMultiArrayConstraint;
+    pub struct MLMultiArrayConstraintRef;
+}
+
 // // Required or default shape of multiarray
 // @property (readonly, nonatomic) NSArray<NSNumber *> *shape;
 

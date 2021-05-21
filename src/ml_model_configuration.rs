@@ -20,6 +20,14 @@ use crate::prelude::*;
 // ML_EXPORT
 // @interface MLModelConfiguration : NSObject <NSCopying, NSSecureCoding>
 
+pub enum MLModelConfigurationFFI {}
+
+foreign_obj_type! {
+    type CType = MLModelConfigurationFFI;
+    pub struct MLModelConfiguration;
+    pub struct MLModelConfigurationRef;
+}
+
 // @property (readwrite) MLComputeUnits computeUnits;
 
 // @end

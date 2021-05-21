@@ -13,6 +13,15 @@ use crate::prelude::*;
 // API_AVAILABLE(macos(10.15), ios(13.0), tvos(14.0))
 // @interface MLUpdateTask : MLTask
 
+pub enum MLUpdateTaskFFI {}
+
+foreign_obj_type! {
+    type CType = MLUpdateTaskFFI;
+    pub struct MLUpdateTask;
+    pub struct MLUpdateTaskRef;
+    type ParentType = MLTaskRef;
+}
+
 // // Update via task control with completion handler
 // + (nullable instancetype)updateTaskForModelAtURL:(NSURL *)modelURL
 //                                     trainingData:(id<MLBatchProvider>)trainingData
